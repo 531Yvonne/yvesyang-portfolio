@@ -11,20 +11,3 @@
         document.body.classList.toggle("light-mode");
     })
 })();
-
-// Update the link to include the sectionId at the tail of the URL
-const controls = document.querySelectorAll('.control');
-controls.forEach(control => {
-  control.addEventListener('click', () => {
-    const sectionId = control.getAttribute('data-id');
-    window.location.href = window.location.href.split('#')[0] + '#' + sectionId;
-  });
-});
-
-// Get the tail from the URL
-const tail = window.location.href.split('#')[1];
-// Navigate to the section corresponding to the tail
-const section = document.getElementById(tail);
-if (section) {
-  section.scrollIntoView();
-}
