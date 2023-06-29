@@ -12,11 +12,17 @@
     })
 })();
 
-// Navigate to specific section based on url tail 
-document.addEventListener('DOMContentLoaded', () => {
-  const tail = window.location.hash.substring(1); // Exclude the "#" character
-  const section = document.getElementById(tail);
-  if (section) {
-    section.scrollIntoView();
+// Wait for the DOM to be fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+  // Check if the URL has a hash value
+  if (window.location.hash) {
+    // Get the section ID from the URL hash
+    var sectionId = window.location.hash.substring(1);
+    
+    // Scroll to the section with the corresponding ID
+    var section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView();
+    }
   }
 });
