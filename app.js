@@ -20,3 +20,11 @@ controls.forEach(control => {
     window.location.href = window.location.href.split('#')[0] + '#' + sectionId;
   });
 });
+
+// Get the tail from the URL
+const tail = window.location.href.split('#')[1];
+// Navigate to the section corresponding to the tail
+const section = document.getElementById(tail);
+if (section) {
+  section.scrollIntoView();
+}
