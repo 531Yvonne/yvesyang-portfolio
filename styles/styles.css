@@ -214,6 +214,30 @@ section {
   line-height: 2rem;
 }
 
+/* Add styles for the clickable words with the moving underline */
+.moving-underline {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.moving-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-secondary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.moving-underline:hover::after {
+  transform: scaleX(1);
+}
+
 /*About*/
 .about-container {
   display: grid;
@@ -228,7 +252,7 @@ section {
 }
 .about-container .right-about .about-item {
   border: 1px solid var(--color-grey-5);
-  border-radius: 5px;
+  border-radius: 10px;
   transition: all 0.4s ease-in-out;
   box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.1);
 }
@@ -266,7 +290,7 @@ section {
   background-color: var(--color-grey-5);
 }
 .about-container .left-about {
-  padding-right: 5rem;
+  padding-right: 2rem;
 }
 .about-container .left-about p {
   line-height: 2rem;
@@ -278,62 +302,122 @@ section {
   text-transform: uppercase;
 }
 
-.about-stats {
-  padding-bottom: 4rem;
-}
-.about-stats .progress-bars {
+/*Timeline*/
+.timeline-single {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
+  padding-bottom: 3rem;
+  grid-template-columns: repeat(1, 1fr);
 }
-.about-stats .progress-bars .progress-bar {
+.timeline-single .timeline-item {
+  position: relative;
+  padding-left: 3rem;
+  border-left: 1px solid var(--color-grey-5);
+}
+.timeline-single .timeline-item .tl-icon {
+  position: absolute;
+  left: -27px;
+  top: 0;
+  background-color: var(--color-secondary);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: 100% 100%;
+  background-position: center;
 }
-.about-stats .progress-bars .progress-bar .prog-title {
+.timeline-single .timeline-item .tl-icon i {
+  font-size: 1.3rem;
+}
+.timeline-single .timeline-item .tl-duration {
+  padding: 0.2rem 0.6rem;
+  background-color: var(--color-grey-5);
+  border-radius: 15px;
+  display: inline-block;
+  font-size: 0.8rem;
   text-transform: uppercase;
   font-weight: 500;
 }
-.about-stats .progress-bars .progress-bar .progress-con {
-  display: flex;
-  align-items: center;
+.timeline-single .timeline-item h5 {
+  padding: 1rem 0;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
-.about-stats .progress-bars .progress-bar .progress-con .prog-text {
+.timeline-single .timeline-item h5 span {
+  color: var(--color-grey-2);
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.timeline-single .timeline-item p {
   color: var(--color-grey-2);
 }
-.about-stats .progress-bars .progress-bar .progress-con .progress {
-  width: 100%;
-  height: 0.45rem;
-  background-color: var(--color-grey-4);
-  margin-left: 1rem;
+
+.timeline-double {
+  display: grid;
+  grid-gap: 2rem;
+  padding-bottom: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+.timeline-double .timeline-item {
   position: relative;
+  padding-left: 3rem;
+  border-left: 1px solid var(--color-grey-5);
 }
-.about-stats .progress-bars .progress-bar .progress-con .progress span {
+.timeline-double .timeline-item .tl-icon {
   position: absolute;
+  left: -27px;
   top: 0;
-  left: 0;
-  height: 100%;
   background-color: var(--color-secondary);
-  transition: all 0.4s ease-in-out;
-  width: 60%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 100% 100%;
+  background-position: center;
 }
-.about-stats .progress-bars .progress-bar .progress-con .progress .html {
-  width: 80%;
+.timeline-double .timeline-item .tl-icon i {
+  font-size: 1.3rem;
 }
-.about-stats .progress-bars .progress-bar .progress-con .progress .css {
-  width: 95%;
+.timeline-double .timeline-item .tl-duration {
+  padding: 0.2rem 0.6rem;
+  background-color: var(--color-grey-5);
+  border-radius: 15px;
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
 }
-.about-stats .progress-bars .progress-bar .progress-con .progress .js {
-  width: 75%;
+.timeline-double .timeline-item h5 {
+  padding: 1rem 0;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
-.about-stats .progress-bars .progress-bar .progress-con .progress .react {
-  width: 60%;
+.timeline-double .timeline-item h5 span {
+  color: var(--color-grey-2);
+  font-weight: 500;
+  font-size: 1.2rem;
 }
-.about-stats .progress-bars .progress-bar .progress-con .progress .node {
-  width: 87%;
+.timeline-double .timeline-item p {
+  color: var(--color-grey-2);
 }
-.about-stats .progress-bars .progress-bar .progress-con .progress .python {
-  width: 70%;
+
+.about-stats {
+  padding-bottom: 4rem;
+}
+.about-stats .skill-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+}
+.about-stats .skill-list .prog-title {
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .stat-title {
@@ -352,57 +436,6 @@ section {
   height: 1px;
   background-color: var(--color-grey-5);
   transform: translateX(-50%);
-}
-
-/*Timeline*/
-.timeline {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2rem;
-  padding-bottom: 3rem;
-}
-.timeline .timeline-item {
-  position: relative;
-  padding-left: 3rem;
-  border-left: 1px solid var(--color-grey-5);
-}
-.timeline .timeline-item .tl-icon {
-  position: absolute;
-  left: -27px;
-  top: 0;
-  background-color: var(--color-secondary);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.timeline .timeline-item .tl-icon i {
-  font-size: 1.3rem;
-}
-.timeline .timeline-item .tl-duration {
-  padding: 0.2rem 0.6rem;
-  background-color: var(--color-grey-5);
-  border-radius: 15px;
-  display: inline-block;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-.timeline .timeline-item h5 {
-  padding: 1rem 0;
-  text-transform: uppercase;
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-.timeline .timeline-item h5 span {
-  color: var(--color-grey-2);
-  font-weight: 500;
-  font-size: 1.2rem;
-}
-.timeline .timeline-item p {
-  color: var(--color-grey-2);
 }
 
 .port-text {
@@ -753,7 +786,7 @@ section {
     grid-template-columns: repeat(1, 1fr);
   }
   .about-container .right-about {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     padding-top: 2.5rem;
   }
   .about-container .left-about {
@@ -762,15 +795,15 @@ section {
   .about-container .left-about p {
     padding-left: 0;
   }
-  .timeline {
+  .timeline-double {
     grid-template-columns: repeat(1, 1fr);
     padding-bottom: 6rem;
   }
   .container {
     padding: 2rem 2.5rem !important;
   }
-  .about-stats .progress-bars {
-    grid-template-columns: repeat(1, 1fr);
+  .about-stats .skill-list {
+    grid-template-columns: repeat(2, 1fr);
   }
   .portfolios {
     grid-template-columns: repeat(1, 1fr);
@@ -874,6 +907,9 @@ section {
   .about-container .right-about {
     padding-top: 2.5rem;
   }
+  .about-stats .skill-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .main-title h2 {
     font-size: 4rem;
   }
@@ -918,11 +954,11 @@ section {
   .container {
     padding: 7rem 3rem;
   }
-  .about-stats .progress-bars {
-    grid-template-columns: repeat(1, 1fr);
+  .about-stats .skill-list {
+    grid-template-columns: repeat(2, 1fr);
   }
   .about-container .right-about {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .timeline {
     grid-template-columns: repeat(1, 1fr);

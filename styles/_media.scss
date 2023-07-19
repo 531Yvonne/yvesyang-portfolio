@@ -60,7 +60,7 @@
         grid-template-columns: repeat(1, 1fr);
 
         .right-about {
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             padding-top: 2.5rem;
         }
 
@@ -73,7 +73,7 @@
         }
     }
 
-    .timeline {
+    .timeline-double {
         grid-template-columns: repeat(1, 1fr);
         padding-bottom: 6rem;
     }
@@ -83,8 +83,8 @@
     }
 
     .about-stats {
-        .progress-bars {
-            grid-template-columns: repeat(1, 1fr);
+        .skill-list {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 
@@ -232,6 +232,10 @@
         }
     }
 
+    .about-stats .skill-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .main-title {
         h2 {
             font-size: 4rem;
@@ -292,12 +296,12 @@
         padding: 7rem 3rem;
     }
 
-    .about-stats .progress-bars {
-        grid-template-columns: repeat(1, 1fr);
+    .about-stats .skill-list {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .about-container .right-about {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .timeline {
