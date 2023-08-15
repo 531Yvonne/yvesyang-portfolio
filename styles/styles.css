@@ -805,9 +805,11 @@ section {
   .about-container .right-about {
     grid-template-columns: repeat(2, 1fr);
     padding-top: 2.5rem;
+    overflow-x: auto;
   }
   .about-container .left-about {
     padding-right: 0;
+    overflow-x: auto;
   }
   .about-container .left-about p {
     padding-left: 0;
